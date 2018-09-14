@@ -1,6 +1,6 @@
 import axiosMiddleware from "redux-axios-middleware";
 import { applyMiddleware, createStore } from "redux";
-import rootReducer from "./reducers/index";
+import products from './reducers/products';
 import axios from 'axios';
 
 const client = axios.create({
@@ -9,7 +9,7 @@ const client = axios.create({
 });
 
 const store = createStore(
-	rootReducer,
+	products,
 	applyMiddleware(
 		axiosMiddleware(client)
 	)

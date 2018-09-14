@@ -9,11 +9,11 @@ class ProductList extends Component {
 		this.props.listProducts();
 	}
 	
-	renderItem = ({ product }) => (
-		<View style={product}>
-			<Text>{product.title}</Text>
-			<Text>{product.price}</Text>
-			<Image source={{uri: product.images[0].thumb}}/>
+	renderItem = ({ item }) => (
+		<View>
+			<Text>{item.title}</Text>
+			<Text>{item.price}</Text>
+			<Image source={{uri: item.images[0].thumb}}/>
 		</View>
 	);
 	
@@ -28,9 +28,12 @@ class ProductList extends Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	products: state.products
-});
+const mapStateToProps = state => {
+	let keyedProducts = state.products.map(product => ({ key: `${product.id}`, ...product }));
+	return {
+		products: keyedProducts
+	};
+};
 
 const mapDispatchToProps = {
 	listProducts
