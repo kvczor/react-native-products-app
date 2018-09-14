@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import React from 'react';
 import { Provider } from 'react-redux';
 import store from './src/store';
+import { createStackNavigator } from 'react-navigation';
 
 import ProductList from './src/components/ProductList';
+import ProductDetails from './src/components/ProductDetails';
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		marginTop: 40
+const RootStack = createStackNavigator(
+	{
+		Home: ProductList,
+		ProductDetails: ProductDetails
+	},
+	{
+		initialRouteName: 'Home',
 	}
-});
+);
 
-export default class App extends Component {
+export default class App extends React.Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<View style={styles.container}>
-					<ProductList/>
-				</View>
+					<RootStack/>
 			</Provider>
 		);
 	}
-};
-
+}

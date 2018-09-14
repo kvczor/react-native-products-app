@@ -1,6 +1,6 @@
 import { constants } from "./constants";
 
-export function listProducts() {
+export function fetchProducts() {
 	return {
 		type: constants.GET_PRODUCTS,
 		payload: {

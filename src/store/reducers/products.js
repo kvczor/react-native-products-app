@@ -5,19 +5,19 @@ export default function reducer(state = { products: [] }, action) {
 		case constants.GET_PRODUCTS:
 			return {
 				...state,
-				loading: true
+				isLoading: true
 			};
 		case constants.GET_PRODUCTS_SUCCESS:
 			return {
 				...state,
-				loading: false,
+				isLoading: false,
 				products: action.payload.data
 			};
-		case constants.GET_PRODUCTS_FAILURE:
+		case constants.GET_PRODUCTS_FAIL:
 			return {
 				...state,
-				loading: false,
-				error: 'Error while loading products'
+				isLoading: false,
+				isError: true
 			};
 		default:
 			return state;
