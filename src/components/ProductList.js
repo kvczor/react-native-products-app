@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, StyleSheet, Image } from 'react-native';
+import { View, Text, FlatList, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 import { listProducts } from '../store/actions/';
@@ -13,7 +13,7 @@ class ProductList extends Component {
 		<View style={product}>
 			<Text>{product.title}</Text>
 			<Text>{product.price}</Text>
-			<Image source={require(product.images[0].thumb)}/>
+			<Image source={{uri: product.images[0].thumb}}/>
 		</View>
 	);
 	

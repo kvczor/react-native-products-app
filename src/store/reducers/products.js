@@ -5,7 +5,7 @@ export default function reducer(state = { products: [] }, action) {
 		case constants.GET_PRODUCTS:
 			return { ...state, loading: true };
 		case constants.GET_PRODUCTS_SUCCESS:
-			return { ...state, loading: false, repos: action.payload.data };
+			return { ...state, loading: false, products: action.payload.data };
 		case constants.GET_PRODUCTS_FAILURE:
 			return {
 				...state,
