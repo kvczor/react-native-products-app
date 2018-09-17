@@ -5,11 +5,13 @@ import { createStackNavigator } from 'react-navigation';
 
 import ProductList from './src/components/ProductList';
 import ProductDetails from './src/components/ProductDetails';
+import ProductGallery from './src/components/ProductGallery';
 
 const RootStack = createStackNavigator(
 	{
 		Home: ProductList,
-		ProductDetails: ProductDetails
+		ProductDetails: ProductDetails,
+		ProductGallery: ProductGallery
 	},
 	{
 		initialRouteName: 'Home',

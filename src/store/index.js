@@ -1,6 +1,7 @@
 import axiosMiddleware from "redux-axios-middleware";
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, createStore, compose } from "redux";
 import products from './reducers/products';
+import thunk from 'redux-thunk';
 import axios from 'axios';
 
 const client = axios.create({
@@ -8,11 +9,12 @@ const client = axios.create({
 	responseType: 'json'
 });
 
+const middleware = [axiosMiddleware(client), thunk];
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
 	products,
-	applyMiddleware(
-		axiosMiddleware(client)
-	)
+	composeEnhancers(applyMiddleware(...middleware))
 );
 
 export default store;
