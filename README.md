@@ -16,3 +16,4 @@
 submitting one
 - adding unit tests for components, actions and reducers
 - relaying on more stable gallery solution
+- I wanted to show that I know how to use async/await, but I think that code using promises would be cleaner
